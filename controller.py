@@ -5,10 +5,13 @@ def newalbum():
     # creates a new album
     # params:
     #   albumname: name for the new album (plain text)
+    #   useremail: email for the initial user that can add new users
     return {
         "success": "created",
         "albumname": "Ostsee 2015",
-        "albumurl": "ostsee2015"
+        "albumurl": "ostsee2015",
+        "useremail": "albumcreator@user.invalid",
+        "userkey": "qwertyuiop1234567890"
     }
 
 @route('/album/<albumname>/<userkey>/users', 'POST')
@@ -18,7 +21,8 @@ def newuser(albumname, userkey):
     #   useremail: email adress for the user
     return {
         "success": "created",
-        "useremail": "new@user.invalid"
+        "useremail": "new@user.invalid",
+        "userkey": "1234567890qwertyuiop"
     }
 
 # @route('/album/<userkey>', 'GET')
