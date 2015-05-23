@@ -6,7 +6,7 @@ def create_album(album_name):
     album_name_cleaner = re.compile( '[^a-zA-Z0-9]')
     clean_album_name = album_name_cleaner.subn( '', album_name)[0]
 
-    existing_album_name = _check_existing_album_url(clean_album_name)
+    existing_album_name = check_existing_album_url(clean_album_name)
     if existing_album_name is not None:
         raise "Ablum already existing"
 
@@ -21,10 +21,7 @@ def create_album(album_name):
 def full_album_url(request, album_key, user_id):
     return 'http://' + request.get_header('host') + '/' + album_key + '/' + user_id + '/'
 
-#############################
-# private
-
-def _check_existing_album_url(album_url):
+def check_existing_album_url(album_url):
     db = get_db()
 
     # check if album exists

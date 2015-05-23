@@ -30,3 +30,23 @@ def create_user_for_album(user_email, album_ident):
     send_email(user_email, "Neuer Benutzer", "Dein Login wurde erfolgreich erstellt")
 
     return new_user_id
+
+def check_user_on_album(user_key, album_ident):
+    db = get_db()
+
+    # check if album exists
+    cur = db.cursor()
+    cur.execute("SELECT url FROM album WHERE url=?", (album_ident, ))
+    albums = cur.fetchone()
+
+    if albums is None:
+        raise "Ablum not found"
+
+    # check if user key is on album
+    cur = db.cursor()
+    cur.execute("SELECT key FROM users WHERE album_url=? AND key=?", (album_ident, user_key, ))
+    users = cur.fetchone()
+    cur.close()
+
+    if users is not None:
+        return users[0]
