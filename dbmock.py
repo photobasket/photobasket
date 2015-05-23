@@ -13,4 +13,6 @@ cur.execute("INSERT INTO images VALUES ('images/urlaub2015/2345.jpeg', 'urlaub20
 cur.execute("INSERT INTO images VALUES ('images/urlaub2015/3456.jpeg', 'urlaub2015', 'notexistinguser')")
 cur.execute("INSERT INTO images VALUES ('images/urlaub2015/4567.jpeg', 'urlaub2015', 'lsoe7fh4zf5ndh7e')")
 
+conn.commit()
+
 cur.close()
