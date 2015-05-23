@@ -1,5 +1,6 @@
 from bottle import Bottle, route, request
 from lib import create_user_for_album
+from lib import send_email
 import json
 
 
@@ -11,6 +12,7 @@ def newalbum():
     albumname = jsonrequest["albumname"] 
     useremail = jsonrequest["useremail"] 
     userkey = create_user_for_album(useremail, albumname);
+    send_email("useremail", "Neues Album", "Das Album wurde erstellt")
     # creates a new album
     # params:
     #   albumname: name for the new album (plain text)
