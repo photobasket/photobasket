@@ -7,3 +7,7 @@ Install/Update required python modules:
 
 Generate database: ```python dbinit.py```  
 Load mock data into database: ```python dbmock.py```
+
+## Start
+
+```python main.py```
