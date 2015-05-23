@@ -24,44 +24,18 @@ def album(albumname, userkey):
     for user_email in user_emails:
         album_users.append(user_email[0])
 
+    album_images = []
+    cur = db.cursor()
+    cur.execute("SELECT images.path, users.email FROM images, users WHERE images.album_url=? AND users.key = images.users_key", (albumname, ))
+    db_album_images = cur.fetchall()
+    for album_image in db_album_images:
+        album_images.append({
+            'url': album_image[0],
+            'thumb320': album_image[0],
+            'uploader': album_image[1]
+        })
+
     return {
         "users": album_users,
-        "images": [
-            {
-                "url": "/static/example_images/beach.jpg",
-                "thumb320": "/static/example_images/beach-320.jpg",
-                "uploader": "user1@gmail.com"
-            },
-            {
-                "url": "/static/example_images/dog.jpg",
-                "thumb320": "/static/example_images/dog-320.jpg",
-                "uploader": "lemmings@hotmail.fi"
-            },
-            {
-                "url": "/static/example_images/happy-family.jpg",
-                "thumb320": "/static/example_images/happy-family-320.jpg",
-                "uploader": "lemmings@hotmail.fi"
-            },
-            {
-                "url": "/static/example_images/high-five.jpg",
-                "thumb320": "/static/example_images/high-five-320.jpg",
-                "uploader": "lemmings@hotmail.fi"
-            },
-            {
-                "url": "/static/example_images/hiking-family.jpg",
-                "thumb320": "/static/example_images/hiking-family-320.jpg",
-                "uploader": "lemmings@hotmail.fi"
-            },
-            {
-                "url": "/static/example_images/cat.jpg",
-                "thumb320": "/static/example_images/cat-320.jpg",
-                "uploader": "lemmings@hotmail.fi"
-            },
-            {
-                "url": "/static/example_images/wedding.jpg",
-                "thumb320": "/static/example_images/wedding-320.jpg",
-                "uploader": "lemmings@hotmail.fi"
-            }
-
-        ]
+        "images": album_images
     }
