@@ -7,6 +7,10 @@ root = Bottle()
 def index():
     return static_file('index.html', root='frontend')
 
+@root.route('/album/<albumname>/<userkey>', 'GET')
+def album(albumname, userkey):
+    return static_file('album.html', root='frontend')
+
 @root.route('/static/<filename:path>')
 def send_static(filename):
     return static_file(filename, root='frontend')

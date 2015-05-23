@@ -6,7 +6,7 @@ from db import get_db
 
 route_upload = Bottle()
 
-@route_upload.route('/album/<albumname>/<userkey>/upload', 'POST')
+@route_upload.route('/rest/album/<albumname>/<userkey>/upload', 'POST')
 def upload(albumname, userkey):
     # bildupload
     # multiplart upload, all files accepted
@@ -23,24 +23,24 @@ def upload(albumname, userkey):
 
     upload = request.files.get('file')
     name, ext = os.path.splitext(upload.filename)
-    
+
     if ext not in ('.png','.jpg','.jpeg'):
         return {'error' : 'File extension not allowed.'}
-    
+
     save_path = "images/"+albumname+'/'
 
     if not os.path.exists(save_path):
         os.makedirs(save_path)
 
     upload.save(save_path)
-    
+
     cur = db.cursor()
 
     cur.execute("INSERT INTO images (path, album_url, users_key) VALUES (?, ?, ?)", (save_path+upload.filename, albumname, userkey, ))
     db.commit()
 
     cur.close()
-    
+
     return {
         "images": [
             {

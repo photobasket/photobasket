@@ -7,7 +7,7 @@ import json
 
 route_newalbum = Bottle()
 
-@route_newalbum.route('/album/', 'POST')
+@route_newalbum.route('/rest/album/', 'POST')
 def newalbum():
     # creates a new album
     # params:

@@ -2,7 +2,7 @@ from bottle import Bottle, route
 
 route_album = Bottle()
 
-@route_album.route('/album/<albumname>/<userkey>', 'GET')
+@route_album.route('/rest/album/<albumname>/<userkey>', 'GET')
 def album(albumname, userkey):
     # returns album informations including users, images
     return {

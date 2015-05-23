@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $.ajax({url: '/album/IRGENDWAS/IRGENDWAS'}).done(function(data) {
+    var path = document.location.pathname;
+    $.ajax({url: "/rest" + path}).done(function(data) {
         for (var i = 0; i < data.images.length; i++) {
             $('#thumbnails').append('<div class="col-xs-3 image"><img data-image-id="' +
                                     i+ '" src="' +
