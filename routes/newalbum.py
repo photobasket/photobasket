@@ -12,7 +12,7 @@ def newalbum():
     albumname = jsonrequest["albumname"] 
     useremail = jsonrequest["useremail"] 
     userkey = create_user_for_album(useremail, albumname);
-    send_email("useremail", "Neues Album", "Das Album wurde erstellt")
+    send_email(useremail, "Neues Album", "Das Album wurde erstellt")
     # creates a new album
     # params:
     #   albumname: name for the new album (plain text)
