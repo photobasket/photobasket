@@ -9,37 +9,37 @@ def album(albumname, userkey):
         "users": [ "user1@gmail.com", "lemmings@hotmail.fi", "loremipsum@yahoo.de" ],
         "images": [
             {
-                "url": "https://myownspace.invalid/photonet/albumname/images/strandfoto.jpg",
+                "url": "/static/example_images/beach.jpg",
                 "thumb320": "/static/example_images/beach-320.jpg",
                 "uploader": "user1@gmail.com"
             },
             {
-                "url": "https://myownspace.invalid/photonet/albumname/images/lagerfeuer.jpg",
+                "url": "/static/example_images/dog.jpg",
                 "thumb320": "/static/example_images/dog-320.jpg",
                 "uploader": "lemmings@hotmail.fi"
             },
             {
-                "url": "https://myownspace.invalid/photonet/albumname/images/sonnenuntergang+auf+r%C3%BCgen.jpg",
+                "url": "/static/example_images/happy-family.jpg",
                 "thumb320": "/static/example_images/happy-family-320.jpg",
                 "uploader": "lemmings@hotmail.fi"
             },
             {
-                "url": "https://myownspace.invalid/photonet/albumname/images/lustige+leute.jpg",
+                "url": "/static/example_images/high-five.jpg",
                 "thumb320": "/static/example_images/high-five-320.jpg",
                 "uploader": "lemmings@hotmail.fi"
             },
             {
-                "url": "https://myownspace.invalid/photonet/albumname/images/lustige+leute.jpg",
+                "url": "/static/example_images/hiking-family.jpg",
                 "thumb320": "/static/example_images/hiking-family-320.jpg",
                 "uploader": "lemmings@hotmail.fi"
             },
             {
-                "url": "https://myownspace.invalid/photonet/albumname/images/lustige+leute.jpg",
+                "url": "/static/example_images/cat.jpg",
                 "thumb320": "/static/example_images/cat-320.jpg",
                 "uploader": "lemmings@hotmail.fi"
             },
             {
-                "url": "https://myownspace.invalid/photonet/albumname/images/lustige+leute.jpg",
+                "url": "/static/example_images/wedding.jpg",
                 "thumb320": "/static/example_images/wedding-320.jpg",
                 "uploader": "lemmings@hotmail.fi"
             }

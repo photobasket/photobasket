@@ -8,7 +8,7 @@
     <script src="/static/bootstrap.min.js"></script>
     <script src="/static/handlebars-v3.0.3.js"></script>
     <style>
-     .image img { width: 100%; }
+     .image img { width: 100%; cursor: pointer; }
      .modal-header { border-bottom: none; }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,12 +21,8 @@
       <div class="col-xs-3 image"><img src="{{path}}"></div>
     </script>
 
-    <div class="row" id='images'>
+    <div class="row" id='thumbnails'>
     </div>
-
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Launch demo modal
-      </button>
 
     <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
@@ -38,17 +34,7 @@
           <div class="modal-body">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
               <!-- Wrapper for slides -->
-              <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                  <img src="/static/example_images/happy-family.jpg" alt="/static.">
-                </div>
-                <div class="item">
-                  <img src="/static/example_images/cat.jpg">
-                </div>
-                <div class="item">
-                  <img src="/static/example_images/hiking-family.jpg">
-                </div>
-
+              <div class="carousel-inner" id="fullscreen-images" role="listbox">
               </div>
 
               <!-- Controls -->
@@ -75,12 +61,27 @@
      $(document).ready(function () {
          $.ajax({url: '/album/IRGENDWAS/IRGENDWAS'}).done(function(data) {
              for (var i = 0; i < data.images.length; i++) {
-                 $('#images').append('<div class="col-xs-3 image"><img src="' + data.images[i].thumb320 + '"></div>');
+                 $('#thumbnails').append('<div class="col-xs-3 image"><img data-image-id="' +
+                                         i+ '" src="' +
+                                         data.images[i].thumb320 + '"></div>');
+                 $('#fullscreen-images').append('<div class="item"><img data-image-id="' + i + '" src="' +
+                                                data.images[i].url + '"></div>');
              }
+             $('.image img').click(function(evt) {
+                 var image_id = $(evt.target).data('image-id');
+                 $('#fullscreen-images .item img').each(function (index, img) {
+                     var $img = $(img);
+                     if ($img.data('image-id') == image_id) {
+                         $img.parent().addClass('active');
+                     } else {
+                         $img.parent().removeClass('active');
+                     }
+                 });
+                 $('#myModal').modal();
+             });
          });
          var source = $('thumbnail-template').html();
          $('.carousel').carousel({interval: false});
-         $('#myModal').modal();
      });
     </script>
   </body>
