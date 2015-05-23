@@ -6,6 +6,7 @@
     <script src="/static/jquery-2.1.4.min.js"></script>
     <script src="/static/dropzone.js"></script>
     <script src="/static/bootstrap.min.js"></script>
+    <script src="/static/handlebars-v3.0.3.js"></script>
     <style>
      .image img { width: 100%; }
      .modal-header { border-bottom: none; }
@@ -16,15 +17,11 @@
   <body class="container">
     <h1>Photo basket</h1>
 
-    <div class="row">
-      <div class="col-xs-3 image"><img src="/static/example_images/cat-320.jpg"></div>
-      <div class="col-xs-3 image"><img src="/static/example_images/dog-320.jpg"></div>
-      <div class="col-xs-3 image"><img src="/static/example_images/beach-320.jpg"></div>
-      <div class="col-xs-3 image"><img src="/static/example_images/happy-family-320.jpg"></div>
-      <div class="col-xs-3 image"><img src="/static/example_images/cat-320.jpg"></div>
-      <div class="col-xs-3 image"><img src="/static/example_images/dog-320.jpg"></div>
-      <div class="col-xs-3 image"><img src="/static/example_images/beach-320.jpg"></div>
-      <div class="col-xs-3 image"><img src="/static/example_images/happy-family-320.jpg"></div>
+    <script id="thumbnail-template" type="text/x-handlebars-template">
+      <div class="col-xs-3 image"><img src="{{path}}"></div>
+    </script>
+
+    <div class="row" id='images'>
     </div>
 
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -76,6 +73,12 @@
 
     <script>
      $(document).ready(function () {
+         $.ajax({url: '/album/IRGENDWAS/IRGENDWAS'}).done(function(data) {
+             for (var i = 0; i < data.images.length; i++) {
+                 $('#images').append('<div class="col-xs-3 image"><img src="' + data.images[i].thumb320 + '"></div>');
+             }
+         });
+         var source = $('thumbnail-template').html();
          $('.carousel').carousel({interval: false});
          $('#myModal').modal();
      });
