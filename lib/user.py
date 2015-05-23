@@ -1,5 +1,6 @@
 import shortuuid
 from db import get_db
+import send_email
 
 def create_user_for_album(user_email, album_ident):
     db = get_db()
@@ -25,5 +26,7 @@ def create_user_for_album(user_email, album_ident):
     cur = db.cursor()
     cur.execute("INSERT INTO users (album_url, email, key) VALUES (?, ?, ?)", (album_ident, user_email, new_user_id, ))
     db.commit()
+
+    send_email(user_email, "Neuer Benutzer", "Dein Login wurde erfolgreich erstellt")
 
     return new_user_id
