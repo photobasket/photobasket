@@ -8,4 +8,4 @@ root.merge(route_newalbum)
 root.merge(route_newuser)
 root.merge(route_upload)
 
-root.run(host='localhost', port=8080)
+root.run(host='0.0.0.0', port=8080)
