@@ -30,9 +30,9 @@ function showAlbum(data) {
 }
 
 $(document).ready(function () {
-    var path = document.location.pathname;
-    $.ajax({url: "/rest" + path})
-        .done(showAlbum);
+  var path = document.location.pathname;
+  $.ajax({url: "/rest" + path})
+    .done(showAlbum);
 
-    $('.carousel').carousel({interval: false});
+  $('.carousel').carousel({interval: false});
 });
