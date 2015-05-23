@@ -5,4 +5,4 @@ def get_db():
         db = sqlite3.connect('photonet.db')
         get_c_lib.db = db
 
-    return get_c_lib.clib
+    return get_db.db
