@@ -1,6 +1,6 @@
 import shortuuid
 from db import get_db
-import send_email
+from lib import send_email
 
 def create_user_for_album(user_email, album_ident):
     db = get_db()
