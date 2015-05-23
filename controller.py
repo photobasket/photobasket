@@ -1,7 +1,7 @@
 from bottle import route, run
 
-@route('/album/<userkey>', 'POST')
-def newalbum(userkey):
+@route('/album/', 'POST')
+def newalbum():
     return {"key": "value"}
 
 @route('/album/<albumname>/<userkey>/users', 'POST')
