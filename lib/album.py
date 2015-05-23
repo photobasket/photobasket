@@ -2,7 +2,7 @@ import re
 import inspect
 from db import get_db
 
-def create_album(album_name):
+def create_album(album_name, soundcloud_track = None ):
     album_name_cleaner = re.compile( '[^a-zA-Z0-9]')
     clean_album_name = album_name_cleaner.subn( '', album_name)[0]
 
@@ -15,6 +15,12 @@ def create_album(album_name):
     cur.execute("INSERT INTO album (name, url) VALUES (?, ?)", (album_name, clean_album_name, ))
     db.commit()
     cur.close()
+
+    if soundcloud_track is not None:
+        cur = db.cursor()
+        cur.execute("UPDATE album SET soundcloud_url=? WHERE url=?", (soundcloud_track, clean_album_name, ))
+        db.commit()
+        cur.close()
 
     return clean_album_name
 

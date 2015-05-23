@@ -9,13 +9,16 @@ route_album = Bottle()
 def album(albumname, userkey):
     # returns album informations including users, images
 
-    if check_existing_album_url(albumname) is None:
+    db = get_db()
+
+    cur = db.cursor()
+    cur.execute("SELECT name, soundcloud_url FROM album WHERE url=?", (albumname, ))
+    album_info = cur.fetchone()
+    if album_info is None:
         raise "album not existing"
 
     if check_user_on_album(userkey, albumname) is None:
         raise "user not on album"
-
-    db = get_db()
 
     album_users = []
     cur = db.cursor()
@@ -35,7 +38,10 @@ def album(albumname, userkey):
             'uploader': album_image[1]
         })
 
+
     return {
+        "name": album_info[0],
+        "soundcloud_url": album_info[1],
         "users": album_users,
         "images": album_images
     }

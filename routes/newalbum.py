@@ -13,12 +13,16 @@ def newalbum():
     # params:
     #   albumname: name for the new album (plain text)
     #   useremail: email for the initial user that can add new users
+    #   soundcloud_url: (optional) url for a soundcloud track to play during slideshow
 
     jsonrequest = json.load(request.body)
     album_name = jsonrequest["albumname"]
     user_email = jsonrequest["useremail"]
+    soundcloud_url = None
+    if "soundcloud_url" in jsonrequest:
+        soundcloud_url = jsonrequest["soundcloud_url"]
 
-    album_key = create_album(album_name)
+    album_key = create_album(album_name, soundcloud_url)
     user_key = create_user_for_album(user_email, album_key)
     album_url = full_album_url(request, album_key, user_key)
 
