@@ -38,8 +38,8 @@ def album(albumname, userkey):
         thumb_name = filename_parts[0] + '.320' + filename_parts[1]
 
         album_images.append({
-            'url': "http://localhost:8080/"+album_image[0],
-            'thumb320': "http://localhost:8080/"+thumb_name,
+            'url': "http://localhost:8080"+album_image[0],
+            'thumb320': "http://localhost:8080"+thumb_name,
             'size': album_image[2],
             'uploader': album_image[1]
         })
