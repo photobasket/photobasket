@@ -25,4 +25,4 @@ root.merge(route_newuser)
 root.merge(route_upload)
 root.merge(route_image)
 
-root.run(host='0.0.0.0', port=8080)
+root.run(host='0.0.0.0', port=80)
