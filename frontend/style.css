@@ -49,30 +49,34 @@
   top: 1px;
   line-height: 1;
   display: inline-block;
-  margin-right: 10px;
-  width: 20px;
-  height: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 22px;
+  height: 22px;
 }
 
 .icn-download {
-  background: url(/static/download.svg);
+  background: url(/static/download.svg) no-repeat;
 }
 
 .icn-add-friends {
-  background: url(/static/add_friends.svg);
+  background: url(/static/add_friends.svg) no-repeat;
 }
 
 .icn-soundcloud {
-  background: url(/static/soundcloud.png);
+  background: url(/static/soundcloud.png) no-repeat;
 }
 
 
-.album-title,
-.album-pictures {
+.heading {
   color: #3BCDAC;
   font-size: 20px;
   border-bottom: 1px solid #3BCDAC;
   padding-bottom: 9px;
+}
+
+.btn-primary {
+  background-color: #3BCDAC;
 }
 
 .dropzone {
