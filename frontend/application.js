@@ -38,6 +38,7 @@ function invite(evt) {
     }).done(function (data) {
         console.log(data);
     });
+    $email.val("");
 }
 
 var initPhotoSwipeFromDOM = function(gallerySelector) {
@@ -251,7 +252,11 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 $(function () {
   var path = document.location.pathname;
   $.ajax({url: "/rest" + path})
-    .done(showAlbum);
+        .done(showAlbum);
+
+  $('.dropzone').each(function (index, elem) {
+    elem.action = '/rest' + path + '/upload';
+  });
 
   initPhotoSwipeFromDOM('.album');
 
