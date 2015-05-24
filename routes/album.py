@@ -1,6 +1,6 @@
 import os
 
-from bottle import Bottle, route
+from bottle import Bottle, route, request
 from lib import check_existing_album_url
 from lib import check_user_on_album
 from db import get_db
