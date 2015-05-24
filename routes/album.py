@@ -52,6 +52,7 @@ def album(albumname, userkey):
     return {
         "name": album_info[0],
         "soundcloud_url": album_info[1],
+        "download_url": 'http://' + hostname + '/rest/album/' + albumname + '/' + userkey + '/download/' + albumname + '.zip',
         "users": album_users,
         "images": album_images
     }
