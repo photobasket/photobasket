@@ -1,3 +1,5 @@
+import json
+
 from bottle import Bottle, route, request
 
 from lib import create_user_for_album
@@ -29,14 +31,14 @@ def newuser(albumurl, userkey):
     albumname = albums[0]
     
     # TODO: re-enable before live
-    send_email("useremail", "You've been invited to share your memories of " + albumname + " with PhotoBasket", """Hello!
+    send_email(user_email, "You've been invited to share your memories of " + albumname + " with PhotoBasket", """Hello!
 
 You've been invited to the album """ + albumname + """. 
 
 With PhotoBasket, you can see your friends' photos and share your own from your phone or computer, download pictures you want to keep, and add the perfect soundtrack to your memories with SoundCloud. 
 To start seeing and adding memories, follow this unique, personalized link:
 
-""" + 'http://' + request.get_header('host') + "/album/" + albumurl + user_key + """
+""" + 'http://' + request.get_header('host') + "/album/" + albumurl + "/" + user_key + """
 
 Just follow the link and the intuitive PhotoBasket interface will guide you through the process.
 
