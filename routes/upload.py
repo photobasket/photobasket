@@ -54,7 +54,7 @@ def upload(albumname, userkey):
     return {
         "images": [
             {
-                "url": "http://localhost:8080/"+save_path+upload.filename,
+                "url": 'http://' + request.get_header('host') + '/' + save_path + upload.filename,
                 "uploader": user[0],
             }
         ]
