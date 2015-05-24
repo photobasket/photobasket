@@ -1,7 +1,14 @@
-.image img { width: 100%; cursor: pointer; }
-.modal-header { border-bottom: none; }
+.image img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.modal-header {
+  border-bottom: none;
+}
 
 .album {
+  margin-top: 20px;
   overflow: hidden;
   width: 100%;
 }
