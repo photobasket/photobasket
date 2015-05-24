@@ -1,5 +1,5 @@
 import os
-from PIL import Image
+from PIL import Image, ImageOps
 
 from bottle import Bottle, route, request
 
@@ -37,6 +37,10 @@ def upload(albumname, userkey):
 
     img = Image.open(save_path+upload.filename)
     width, height = img.size
+
+    thumb = ImageOps.fit(img, (320, 320), method = Image.ANTIALIAS, centering = (0.5,0.5))
+    fileext = os.path.splitext( upload.filename )
+    thumb.save(save_path + fileext[0] + '.320' + fileext[1], 'JPEG', quality=80)
 
     cur = db.cursor()
 
