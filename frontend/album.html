@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>PhotoBucket</title>
+
     <link rel="stylesheet" href="/static/bootstrap.min.css">
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/dropzone.css">
+    <link rel="stylesheet" href="/static/photoswipe/photoswipe.css">
+    <link rel="stylesheet" href="/static/photoswipe/default-skin/default-skin.css">
+
     <script src="/static/jquery-2.1.4.min.js"></script>
     <script src="/static/dropzone.js"></script>
     <script src="/static/bootstrap.min.js"></script>
     <script src="/static/handlebars-v3.0.3.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="/static/photoswipe/photoswipe.css">
-    <link rel="stylesheet" href="/static/photoswipe/default-skin/default-skin.css">
     <script src="/static/photoswipe/photoswipe.min.js"></script>
     <script src="/static/photoswipe/photoswipe-ui-default.min.js"></script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
@@ -55,14 +57,16 @@
 
       <h1 class="heading">Invite friends</h1>
 
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="exampleInputAmount">Email address</label>
-          <div class="input-group">
-            <input type="text" class="form-control" id="exampleInputAmount" placeholder="foo@example.com">
+      <form id="frmOptions" method="post" class="span12">
+        <div class="row-fluid">
+          <div class="form-group">
+            <label class="control-label" for="email">Email address</label>
+            <div class="input-group ">
+              <input id="email" type="email" class="form-control" placeholder="john.doe@example.com">
+              <a class="input-group-btn btn btn-primary js-invite"><span class="icn icn-add-friends"></span></a>
+            </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary"><span class="icn icn-add-friends"></span></button>
       </form>
 
       <!-- Root element of PhotoSwipe. Must have class pswp. -->

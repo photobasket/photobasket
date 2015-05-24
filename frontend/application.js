@@ -27,6 +27,19 @@ function showAlbum(data) {
   }
 }
 
+function invite(evt) {
+  var $email = $(evt.target).parents("form").find("input[type=email]"),
+      path = document.location.pathname;
+    $.ajax({
+        method: 'POST',
+        url: path + '/users',
+        contentType: 'application/json',
+        data: JSON.stringify({ "useremail": $email.val() })
+    }).done(function (data) {
+        console.log(data);
+    });
+}
+
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // parse slide data (url, title, size ...) from DOM elements
@@ -243,6 +256,7 @@ $(function () {
   initPhotoSwipeFromDOM('.album');
 
   $('form#my-awesome-dropzone').prop('action', '/rest' + path + '/upload')
+  $('.js-invite').click(invite);
 
   Dropzone.options.myAwesomeDropzone = {
     dictDefaultMessage: "Click here to upload."
