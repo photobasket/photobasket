@@ -15,29 +15,13 @@ function showAlbum(data) {
   for (var i = 0; i < data.images.length; i++) {
     $('.container .album').append(
       '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">' +
-        '<a href="' + data.images[i].url + '" itemprop="contentUrl" data-size="1024x1024">' +
+        '<a href="' + data.images[i].url + '" itemprop="contentUrl" data-size="' + data.images[i].size + '">' +
           '<img src="' + data.images[i].thumb320 + '" itemprop="thumbnail" alt="Image description" class="thumb" />' +
         '</a>' +
         // '<figcaption itemprop="caption description">Image caption  1</figcaption>' +
       '</figure>'
     );
   }
-
-  // for (var i = 0; i < data.images.length; i++) {
-  //   $('#thumbnails').append(
-  //     '<div class="col-xs-3 image">'+
-  //       '<img data-image-id="' + i+ '" src="' + data.images[i].thumb320 + '">'+
-  //     '</div>'
-  //   );
-
-  //   $('#fullscreen-images').append(
-  //     '<div class="item">'+
-  //       '<img data-image-id="' + i + '" src="' + data.images[i].url + '">'+
-  //     '</div>'
-  //   );
-  // }
-
-  // $('.image img').click(showFullscreen);
 }
 
 var initPhotoSwipeFromDOM = function(gallerySelector) {

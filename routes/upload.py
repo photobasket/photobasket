@@ -1,4 +1,5 @@
 import os
+from PIL import Image
 
 from bottle import Bottle, route, request
 
@@ -34,9 +35,14 @@ def upload(albumname, userkey):
 
     upload.save(save_path)
 
+    img = Image.open(save_path+upload.filename)
+    width, height = img.size
+
     cur = db.cursor()
 
-    cur.execute("INSERT INTO images (path, album_url, users_key) VALUES (?, ?, ?)", ('/'+save_path+upload.filename, albumname, userkey, ))
+    cur.execute("""
+        INSERT INTO images (path, size, album_url, users_key) VALUES (?, ?, ?, ?)
+    """, ('/'+save_path+upload.filename, str(width)+'x'+str(height), albumname, userkey, ))
     db.commit()
 
     cur.close()

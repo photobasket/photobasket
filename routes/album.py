@@ -29,11 +29,12 @@ def album(albumname, userkey):
 
     album_images = []
     cur = db.cursor()
-    cur.execute("SELECT images.path, users.email FROM images, users WHERE images.album_url=? AND users.key = images.users_key", (albumname, ))
+    cur.execute("SELECT images.path, users.email, images.size FROM images, users WHERE images.album_url=? AND users.key = images.users_key", (albumname, ))
     db_album_images = cur.fetchall()
     for album_image in db_album_images:
         album_images.append({
             'url': album_image[0],
+            'size': album_image[2],
             'thumb320': album_image[0],
             'uploader': album_image[1]
         })
