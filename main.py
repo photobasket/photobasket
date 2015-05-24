@@ -1,5 +1,5 @@
 from bottle import Bottle, route, static_file
-from routes import route_album, route_newalbum, route_newuser, route_upload, route_image
+from routes import route_album, route_newalbum, route_newuser, route_upload, route_image, route_downloadalbum
 
 root = Bottle()
 
@@ -22,6 +22,7 @@ def send_static(filename):
 root.merge(route_album)
 root.merge(route_newalbum)
 root.merge(route_newuser)
+root.merge(route_downloadalbum)
 root.merge(route_upload)
 root.merge(route_image)
 
