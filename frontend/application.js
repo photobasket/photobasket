@@ -254,10 +254,6 @@ $(function () {
   $.ajax({url: "/rest" + path})
         .done(showAlbum);
 
-  $('.dropzone').each(function (index, elem) {
-    elem.action = '/rest' + path + '/upload';
-  });
-
   initPhotoSwipeFromDOM('.album');
 
   $('form#my-awesome-dropzone').prop('action', '/rest' + path + '/upload')
