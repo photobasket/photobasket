@@ -12,7 +12,8 @@ function showFullscreen(evt) {
 }
 
 function showAlbum(data) {
-  $('h1').text(data.name);
+  $('h1.album-title').text(data.name);
+  $('h1.album-pictures').text(data.images.length + " pictures shared");
 
   for (var i = 0; i < data.images.length; i++) {
     $('.container .album').append(

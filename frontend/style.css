@@ -66,14 +66,21 @@
   background: url(/static/soundcloud.png);
 }
 
-.dz-message {
-  background: url(/static/upload.svg) center no-repeat;
-  height: 80px;
-}
 
-.album-title {
+.album-title,
+.album-pictures {
   color: #3BCDAC;
   font-size: 20px;
   border-bottom: 1px solid #3BCDAC;
   padding-bottom: 9px;
+}
+
+.dropzone {
+  border-radius: 10px;
+}
+
+.dz-message {
+  background: url(/static/upload.svg) center no-repeat;
+  height: 100px;
+  color: #3BCDAC;
 }
