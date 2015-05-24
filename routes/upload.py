@@ -24,7 +24,7 @@ def upload(albumname, userkey):
     upload = request.files.get('file')
     name, ext = os.path.splitext(upload.filename)
 
-    if ext not in ('.png','.jpg','.jpeg'):
+    if ext not in ('.png','.jpg','.jpeg','.gif'):
         return {'error' : 'File extension not allowed.'}
 
     save_path = "images/"+albumname+'/'
@@ -36,7 +36,7 @@ def upload(albumname, userkey):
 
     cur = db.cursor()
 
-    cur.execute("INSERT INTO images (path, album_url, users_key) VALUES (?, ?, ?)", (save_path+upload.filename, albumname, userkey, ))
+    cur.execute("INSERT INTO images (path, album_url, users_key) VALUES (?, ?, ?)", ('/'+save_path+upload.filename, albumname, userkey, ))
     db.commit()
 
     cur.close()
