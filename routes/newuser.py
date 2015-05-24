@@ -29,11 +29,11 @@ def newuser(albumurl, userkey):
     albumname = albums[0]
     
     # TODO: re-enable before live
-    send_email("useremail", "You’ve been invited to share your memories of " + albumname + " with PhotoBasket", """Hello!
+    send_email("useremail", "You've been invited to share your memories of " + albumname + " with PhotoBasket", """Hello!
 
-You’ve been invited to the album """ + albumname + """. 
+You've been invited to the album """ + albumname + """. 
 
-With PhotoBasket, you can see your friends’ photos and share your own from your phone or computer, download pictures you want to keep, and add the perfect soundtrack to your memories with SoundCloud. 
+With PhotoBasket, you can see your friends' photos and share your own from your phone or computer, download pictures you want to keep, and add the perfect soundtrack to your memories with SoundCloud. 
 To start seeing and adding memories, follow this unique, personalized link:
 
 """ + 'http://' + request.get_header('host') + "/album/" + albumurl + user_key + """
@@ -41,7 +41,7 @@ To start seeing and adding memories, follow this unique, personalized link:
 Just follow the link and the intuitive PhotoBasket interface will guide you through the process.
 
 Can I share the link with others?
-Your link is your unique identifier to access and add to this album on PhotoBasket, so make sure to keep it safe and don’t share it -  or they might start sharing things under your name! Instead, you can add other users from the PhotoBasket album to have them sent their own personal link.
+Your link is your unique identifier to access and add to this album on PhotoBasket, so make sure to keep it safe and don't share it -  or they might start sharing things under your name! Instead, you can add other users from the PhotoBasket album to have them sent their own personal link.
 
 Is my data safe? Who can see my photos?
 Your data will be stored on the server of your PhotoBasket host - so if you trust your friend, your data is in good hands. ;) None of it will be uploaded to third-party servers. 
