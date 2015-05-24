@@ -64,6 +64,9 @@
 
 .icn-soundcloud {
   background: url(/static/soundcloud.png);
-  width: 64px;
-  height: 43px;
+}
+
+.dz-message {
+  background: url(/static/upload.svg) center no-repeat;
+  height: 80px;
 }

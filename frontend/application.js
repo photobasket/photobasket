@@ -242,4 +242,8 @@ $(function () {
   initPhotoSwipeFromDOM('.album');
 
   $('form#my-awesome-dropzone').prop('action', '/rest' + path + '/upload')
+
+  Dropzone.options.myAwesomeDropzone = {
+    dictDefaultMessage: "Click here to upload."
+  }
 });
