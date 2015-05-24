@@ -4,7 +4,7 @@ import os
 
 route_image = Bottle()
 
-@route_image.route('/image/<albumname>/<filename>', 'GET')
+@route_image.route('/images/<albumname>/<filename>', 'GET')
 def album(albumname, filename):
     
     filepath = "images/"+albumname+"/"+filename

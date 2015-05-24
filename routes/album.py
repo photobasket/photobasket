@@ -33,8 +33,8 @@ def album(albumname, userkey):
     db_album_images = cur.fetchall()
     for album_image in db_album_images:
         album_images.append({
-            'url': album_image[0],
-            'thumb320': album_image[0],
+            'url': "http://localhost:8080/"+album_image[0],
+            'thumb320': "http://localhost:8080/"+album_image[0],
             'uploader': album_image[1]
         })
 
