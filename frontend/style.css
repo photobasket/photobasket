@@ -23,3 +23,16 @@
 .album figcaption {
   display: none;
 }
+
+.navbar {
+  background-color: #3BCDAC;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover {
+  background-color: #50E3C2;
+}
