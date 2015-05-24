@@ -1,3 +1,5 @@
+import os
+
 from bottle import Bottle, route
 from lib import check_existing_album_url
 from lib import check_user_on_album
@@ -32,10 +34,13 @@ def album(albumname, userkey):
     cur.execute("SELECT images.path, users.email, images.size FROM images, users WHERE images.album_url=? AND users.key = images.users_key", (albumname, ))
     db_album_images = cur.fetchall()
     for album_image in db_album_images:
+        filename_parts = os.path.splitext( album_image[0] )
+        thumb_name = filename_parts[0] + '.320' + filename_parts[1]
+
         album_images.append({
             'url': album_image[0],
             'size': album_image[2],
-            'thumb320': album_image[0],
+            'thumb320': thumb_name,
             'uploader': album_image[1]
         })
 
