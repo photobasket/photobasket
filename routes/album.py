@@ -33,15 +33,19 @@ def album(albumname, userkey):
     cur = db.cursor()
     cur.execute("SELECT images.path, users.email, images.size FROM images, users WHERE images.album_url=? AND users.key = images.users_key", (albumname, ))
     db_album_images = cur.fetchall()
+
+    hostname = request.get_header('host')
+
     for album_image in db_album_images:
         filename_parts = os.path.splitext( album_image[0] )
         thumb_name = filename_parts[0] + '.320' + filename_parts[1]
 
         album_images.append({
-            'url': 'http://' + request.get_header('host') + album_image[0],
-            'thumb320': 'http://' + request.get_header('host') + thumb_name,
+            'url': 'http://' + hostname + album_image[0],
+            'thumb320': 'http://' + hostname + thumb_name,
             'size': album_image[2],
-            'uploader': album_image[1]
+            'uploader': album_image[1],
+            'download_url': 'http://' + hostname + '/rest/album/' + albumname + '/' + userkey + '/download/' + albumname + '.zip'
         })
 
 
