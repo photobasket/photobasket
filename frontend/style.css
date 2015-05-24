@@ -96,3 +96,7 @@
 body {
   font-family: 'Lora', serif;
 }
+
+.invite-form {
+  margin-top: 10px;
+}
