@@ -1,6 +1,6 @@
 import os
 
-from bottle import Bottle, route, request
+from bottle import Bottle, route, request, HTTPError
 from lib import check_existing_album_url
 from lib import check_user_on_album
 from db import get_db
@@ -17,10 +17,10 @@ def album(albumname, userkey):
     cur.execute("SELECT name, soundcloud_url FROM album WHERE url=?", (albumname, ))
     album_info = cur.fetchone()
     if album_info is None:
-        raise "album not existing"
+        raise HTTPError(404, "album not existing")
 
     if check_user_on_album(userkey, albumname) is None:
-        raise "user not on album"
+        raise HTTPError(403, "user not on album")
 
     album_users = []
     cur = db.cursor()
