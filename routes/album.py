@@ -44,8 +44,7 @@ def album(albumname, userkey):
             'url': 'http://' + hostname + album_image[0],
             'thumb320': 'http://' + hostname + thumb_name,
             'size': album_image[2],
-            'uploader': album_image[1],
-            'download_url': 'http://' + hostname + '/rest/album/' + albumname + '/' + userkey + '/download/' + albumname + '.zip'
+            'uploader': album_image[1]
         })
 
 
