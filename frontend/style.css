@@ -1,0 +1,25 @@
+.image img { width: 100%; cursor: pointer; }
+.modal-header { border-bottom: none; }
+
+.album {
+  overflow: hidden;
+  width: 100%;
+}
+.album .thumb {
+  max-width: 320px;
+  max-height: 320px;
+  float: left;
+}
+.album img {
+  width: 100%;
+  height: auto;
+}
+.album figure {
+  display: block;
+  float: left;
+  margin: 0 5px 5px 0;
+  width: 150px;
+}
+.album figcaption {
+  display: none;
+}
