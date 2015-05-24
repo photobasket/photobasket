@@ -31,19 +31,6 @@
   display: none;
 }
 
-.navbar {
-  background-color: #3BCDAC;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-  color: white;
-}
-
-.navbar-inverse .navbar-nav > li > a:focus,
-.navbar-inverse .navbar-nav > li > a:hover {
-  background-color: #50E3C2;
-}
-
 .icn {
   position: relative;
   top: 1px;
@@ -99,4 +86,24 @@ body {
 
 .invite-form {
   margin-top: 10px;
+}
+
+/* Navigation */
+
+.navbar {
+  border-radius: 0;
+  background-color: #3BCDAC;
+}
+
+.navbar-inverse {
+  border: none;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover {
+  background-color: #50E3C2;
 }
