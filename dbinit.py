@@ -17,6 +17,7 @@ cur.execute('''CREATE TABLE users (
 
 cur.execute('''CREATE TABLE images (
                   path TEXT,
+                  size TEST,
                   album_url TEXT,
                   users_key TEXT
             )''')

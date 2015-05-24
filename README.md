@@ -11,3 +11,8 @@ Load mock data into database: ```python dbmock.py```
 ## Start
 
 ```python main.py```
+
+## dev task
+
+Update requirements.txt:  
+```pip freeze > requirements.txt```

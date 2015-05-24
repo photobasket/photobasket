@@ -1,7 +1,8 @@
-bottle-fdsend==0.1.1
 CodeIntel==0.1.7
 Inflector==2.0.11
+Pillow==2.8.1
 bottle==0.12.8
+bottle-fdsend==0.1.1
 shortuuid==0.4.2
 six==1.9.0
 subprocess32==3.2.6
