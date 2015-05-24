@@ -82,6 +82,9 @@
 
 .dropzone {
   border-radius: 10px;
+  max-width: 600px;
+  margin-top: 20px;
+  background-color: #E8FFF0;
 }
 
 .dz-message {
