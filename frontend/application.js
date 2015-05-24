@@ -20,7 +20,7 @@ function showAlbum(data) {
         '<a href="' + data.images[i].url + '" itemprop="contentUrl" data-size="' + data.images[i].size + '">' +
           '<img src="' + data.images[i].thumb320 + '" itemprop="thumbnail" alt="Image description" class="thumb" />' +
         '</a>' +
-        // '<figcaption itemprop="caption description">Image caption  1</figcaption>' +
+        '<figcaption itemprop="caption description">uploaded by ' + data.images[i].uploader + '</figcaption>' +
       '</figure>'
     );
   }
