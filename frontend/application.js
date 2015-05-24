@@ -12,6 +12,8 @@ function showFullscreen(evt) {
 }
 
 function showAlbum(data) {
+  $('h1').text(data.name);
+
   for (var i = 0; i < data.images.length; i++) {
     $('.container .album').append(
       '<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">' +
@@ -234,6 +236,4 @@ $(function () {
   initPhotoSwipeFromDOM('.album');
 
   $('form#my-awesome-dropzone').prop('action', '/rest' + path + '/upload')
-
-  // $('.carousel').carousel({interval: false});
 });
