@@ -29,10 +29,12 @@ function showAlbum(data) {
   $('.image img').click(showFullscreen);
 }
 
-$(document).ready(function () {
+$(function () {
   var path = document.location.pathname;
   $.ajax({url: "/rest" + path})
     .done(showAlbum);
+
+  $('form#my-awesome-dropzone').prop('action', '/rest' + path + '/upload')
 
   $('.carousel').carousel({interval: false});
 });
