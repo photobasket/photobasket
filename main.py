@@ -1,29 +1,36 @@
+import daemon
+
 from bottle import Bottle, route, static_file
 from routes import route_album, route_newalbum, route_newuser, route_upload, route_image, route_downloadalbum
 
-root = Bottle()
+def main():
 
-@root.route('/')
-def index():
-    return static_file('index.html', root='frontend')
+    root = Bottle()
 
-@root.route('/album/<albumname>/<userkey>', 'GET')
-def album(albumname, userkey):
-    return static_file('album.html', root='frontend')
+    @root.route('/')
+    def index():
+        return static_file('index.html', root='frontend')
 
-@root.route('/static/<filename:path>')
-def send_static(filename):
-    return static_file(filename, root='frontend')
+    @root.route('/album/<albumname>/<userkey>', 'GET')
+    def album(albumname, userkey):
+        return static_file('album.html', root='frontend')
 
-@root.route('/fonts/<filename:path>')
-def send_static(filename):
-    return static_file(filename, root='fonts')
+    @root.route('/static/<filename:path>')
+    def send_static(filename):
+        return static_file(filename, root='frontend')
 
-root.merge(route_album)
-root.merge(route_newalbum)
-root.merge(route_newuser)
-root.merge(route_downloadalbum)
-root.merge(route_upload)
-root.merge(route_image)
+    @root.route('/fonts/<filename:path>')
+    def send_static(filename):
+        return static_file(filename, root='fonts')
 
-root.run(host='0.0.0.0', port=80)
+    root.merge(route_album)
+    root.merge(route_newalbum)
+    root.merge(route_newuser)
+    root.merge(route_downloadalbum)
+    root.merge(route_upload)
+    root.merge(route_image)
+
+    root.run(host='0.0.0.0', port=80, server='paste')
+
+with daemon.DaemonContext():
+    main()
