@@ -73,6 +73,7 @@
   font-size: 20px;
   border-bottom: 1px solid #3BCDAC;
   padding-bottom: 9px;
+  font-family: 'Ruda', sans-serif;
 }
 
 .btn-primary {
@@ -87,4 +88,8 @@
   background: url(/static/upload.svg) center no-repeat;
   height: 100px;
   color: #3BCDAC;
+}
+
+body {
+  font-family: 'Lora', serif;
 }
