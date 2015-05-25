@@ -1,4 +1,4 @@
-%include frontend/header.html.tpl
+%include frontend/_header.html.tpl
 
 <nav class="navbar navbar-inverse">
   <div class="container">
@@ -57,9 +57,9 @@
 
   <span class="js-soundcloud"></span>
 
-  %include frontend/photoswipe.html.tpl
+  %include frontend/_photoswipe.html.tpl
 </div><!--/.container-->
 
 <script src="/static/application.js"></script>
 
-% include frontend/footer.html.tpl
+% include frontend/_footer.html.tpl

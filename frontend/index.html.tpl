@@ -1,4 +1,4 @@
-%include frontend/header.html.tpl
+%include frontend/_header.html.tpl
 
 <nav class="navbar navbar-inverse">
   <div class="container">
@@ -41,4 +41,4 @@
   </div>
 </div>
 
-% include frontend/footer.html.tpl
+% include frontend/_footer.html.tpl
