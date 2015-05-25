@@ -1,15 +1,17 @@
-from bottle import Bottle, route, static_file
+from bottle import Bottle, route, static_file, SimpleTemplate
 from routes import route_album, route_newalbum, route_newuser, route_upload, route_image, route_downloadalbum
 
 root = Bottle()
 
 @root.route('/')
 def index():
-    return static_file('index.html', root='frontend')
+    tpl = SimpleTemplate(name='frontend/index.html.tpl')
+    return tpl.render()
 
 @root.route('/album/<albumname>/<userkey>', 'GET')
 def album(albumname, userkey):
-    return static_file('album.html', root='frontend')
+    tpl = SimpleTemplate(name='frontend/album.html.tpl')
+    return tpl.render()
 
 @root.route('/static/<filename:path>')
 def send_static(filename):
