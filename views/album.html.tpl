@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img src="/static/Logo.svg" class="navbar-brand">
+      <img src="/img/Logo.svg" class="navbar-brand">
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -60,6 +60,6 @@
   %include views/_photoswipe.html.tpl
 </div><!--/.container-->
 
-<script src="/static/application.js"></script>
+<script src="/js/application.js"></script>
 
 % include views/_footer.html.tpl

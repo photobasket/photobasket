@@ -3,7 +3,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container">
     <div class="navbar-header">
-      <img src="/static/Logo.svg" class="navbar-brand">
+      <img src="/img/Logo.svg" class="navbar-brand">
     </div>
   </div>
 </nav>
@@ -11,7 +11,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <img src="/static/example_images/happy-family.jpg" style="width: 100%;">
+      <img src="/img/happy-family.jpg" style="width: 100%;">
     </div>
   </div>
 
@@ -38,7 +38,7 @@
         This PhotoBasket server is operated by <a href="mailto:john.doe@example.com">John Doe</a>. Learn how to get <a href="">your own PhotoBasket</a>.
       </p>
     </div>
-  </div>
-</div>
+  </div><!--/.row-->
+</div><!--/.container-->
 
 % include views/_footer.html.tpl

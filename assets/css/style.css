@@ -1,0 +1,109 @@
+.image img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.album {
+  margin-top: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+.album .thumb {
+  max-width: 320px;
+  max-height: 320px;
+  float: left;
+}
+.album img {
+  width: 100%;
+  height: auto;
+}
+.album figure {
+  display: block;
+  float: left;
+  margin: 0 5px 5px 0;
+  width: 150px;
+}
+.album figcaption {
+  display: none;
+}
+
+.icn {
+  position: relative;
+  top: 1px;
+  line-height: 1;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 22px;
+  height: 22px;
+}
+
+.icn-download {
+  background: url(/img/download.svg) no-repeat;
+}
+
+.icn-add-friends {
+  background: url(/img/add_friends.svg) no-repeat;
+}
+
+.icn-soundcloud {
+  background: url(/img/soundcloud.png) no-repeat;
+}
+
+
+.heading {
+  color: #3BCDAC;
+  font-size: 20px;
+  border-bottom: 1px solid #3BCDAC;
+  padding-bottom: 9px;
+  font-family: 'Ruda', sans-serif;
+}
+
+.btn-primary {
+  background-color: #3BCDAC;
+}
+
+.dropzone {
+  border-radius: 10px;
+  max-width: 600px;
+  margin-top: 20px;
+  background-color: #E8FFF0;
+}
+
+.dz-message {
+  background: url(/img/upload.svg) center no-repeat;
+  height: 100px;
+  color: #3BCDAC;
+}
+
+body {
+  font-family: 'Lora', serif;
+}
+
+.invite-form {
+  margin-top: 10px;
+}
+
+/* Navigation */
+
+.navbar {
+  border-radius: 0;
+  background-color: #3BCDAC;
+}
+
+.navbar-inverse {
+  border: none;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover {
+  background-color: #50E3C2;
+}

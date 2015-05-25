@@ -5,20 +5,28 @@ root = Bottle()
 
 @root.route('/')
 def index():
-    tpl = SimpleTemplate(name='frontend/index.html.tpl')
+    tpl = SimpleTemplate(name='views/index.html.tpl')
     return tpl.render()
 
 @root.route('/album/<albumname>/<userkey>', 'GET')
 def album(albumname, userkey):
-    tpl = SimpleTemplate(name='frontend/album.html.tpl')
+    tpl = SimpleTemplate(name='views/album.html.tpl')
     return tpl.render()
+
+@root.route('/img/<filename:path>')
+def send_img(filename):
+    return static_file(filename, root='assets/img')
+
+@root.route('/js/<filename:path>')
+def send_js(filename):
+    return static_file(filename, root='assets/js')
 
 @root.route('/static/<filename:path>')
 def send_static(filename):
     return static_file(filename, root='frontend')
 
 @root.route('/fonts/<filename:path>')
-def send_static(filename):
+def send_fonts(filename):
     return static_file(filename, root='fonts')
 
 root.merge(route_album)
