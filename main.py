@@ -21,13 +21,13 @@ def send_img(filename):
 def send_js(filename):
     return static_file(filename, root='assets/js')
 
-@root.route('/static/<filename:path>')
-def send_static(filename):
-    return static_file(filename, root='frontend')
+@root.route('/css/<filename:path>')
+def send_css(filename):
+    return static_file(filename, root='assets/css')
 
 @root.route('/fonts/<filename:path>')
 def send_fonts(filename):
-    return static_file(filename, root='fonts')
+    return static_file(filename, root='assets/fonts')
 
 root.merge(route_album)
 root.merge(route_newalbum)
