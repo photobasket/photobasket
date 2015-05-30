@@ -1,4 +1,4 @@
 <?php
 
-$app->get('/rest/album/:albumname/:userkey/download', function ($albumname, $userkey) {
+$app->get('/rest/album/:albumname/:userkey/download', function ($albumname, $userkey) use ($app) {
 });

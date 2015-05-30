@@ -1,4 +1,4 @@
 <?php
 
-$app->post('/rest/album', function() {
+$app->post('/rest/album', function() use ($app) {
 });
