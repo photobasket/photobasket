@@ -1,8 +1,11 @@
 <?php
 require 'vendor/autoload.php';
 
-$app = new \Slim\Slim();
-$app->get('/hello/:name', function ($name) {
-    echo "Hello, " . $name;
-});
+$app = new \Slim\Slim(array(
+	'mode'	=> 'development',
+    'debug' => true
+));
+
+require __DIR__ . '/app/routes/routes.php';
+
 $app->run();
