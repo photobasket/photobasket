@@ -17,8 +17,18 @@ class Action {
 		// DO NOTHING
 	}
 
-	protected function renderJSON($array) {
+	protected function setJSONHeader() {
 		$this->response->headers->set('Content-Type', 'application/json');
+	}
+
+	protected function renderJSON($array) {
+		$this->setJSONHeader();
 		$this->response->write(json_encode($array, JSON_PRETTY_PRINT));
+	}
+
+	protected function renderJSONError($message, $status_code = 400) {
+		$this->setJSONHeader();
+		$this->response->setStatus($status_code);
+		$this->response->write(json_encode(array('error' => $message)));
 	}
 }

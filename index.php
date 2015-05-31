@@ -6,6 +6,7 @@ $app = new \Slim\Slim(array(
     'debug' => true
 ));
 
+require __DIR__ . '/app/lib/db.php';
 require __DIR__ . '/app/lib/action.php';
 require __DIR__ . '/app/routes/routes.php';
 

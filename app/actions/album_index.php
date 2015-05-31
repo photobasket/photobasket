@@ -3,9 +3,12 @@ namespace PhotoBasket;
 
 class AlbumIndexAction extends Action {
 	function main() {
+		$album = DB::get_album($this->params['album']);
+		if (count($album) <= 0) { $this->renderJSONError('album "' . $this->params['album'] . '" missing', 404); return; }
+
 		$data = array(
-			'name'			=> 'Albumname',
-			'soundloud_url'	=> false,
+			'name'			=> $album['name'],
+			'soundloud_url'	=> $album['soundcloud_url'],
 			'download_url'	=> '/download/dummy.zip',
 			'users'			=> array(
 				'user1@foo.bar',

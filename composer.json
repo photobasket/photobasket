@@ -1,5 +1,6 @@
 {
     "require": {
-        "slim/slim": "~2.6"
+        "slim/slim": "~2.6",
+        "greg0/lazer-database": "1.0.*"
     }
 }

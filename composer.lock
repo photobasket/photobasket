@@ -4,8 +4,54 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7c472e508d135ce0de8538e1a414d4e0",
+    "hash": "079744e9d2a9aa44f2ade6ea3f1eef19",
     "packages": [
+        {
+            "name": "greg0/lazer-database",
+            "version": "1.0.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Greg0/Lazer-Database.git",
+                "reference": "1f93b0f1c7c6af72b12491122661c3b636bb0f0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Greg0/Lazer-Database/zipball/1f93b0f1c7c6af72b12491122661c3b636bb0f0c",
+                "reference": "1f93b0f1c7c6af72b12491122661c3b636bb0f0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Lazer\\Classes\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grzegorz Kuźnik",
+                    "email": "gerg0sz92@gmail.com"
+                }
+            ],
+            "description": "PHP library to use JSON files like flat-file database",
+            "homepage": "http://github.com/Greg0/Lazer-Database",
+            "keywords": [
+                "Simple",
+                "database",
+                "db",
+                "file",
+                "flat",
+                "json",
+                "lazer"
+            ],
+            "time": "2015-04-20 14:22:10"
+        },
         {
             "name": "slim/slim",
             "version": "2.6.2",
