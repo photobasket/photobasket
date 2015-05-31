@@ -57,3 +57,6 @@ target/
 
 # Upload directory
 images/
+
+# db data
+db/data/
