@@ -6,6 +6,9 @@ class AlbumIndexAction extends Action {
 		$album = DB::get_album($this->params['album']);
 		if (count($album) <= 0) { $this->renderJSONError('album "' . $this->params['album'] . '" missing', 404); return; }
 
+		$user = DB::get_album_user($this->params['album'], $this->params['user']);
+		if (count($user) <= 0) { $this->renderJSONError('user "' . $this->params['user'] . '" has no access to album "' . $this->params['album'] . '"', 401); return; }
+
 		$data = array(
 			'name'			=> $album['name'],
 			'soundloud_url'	=> $album['soundcloud_url'],

@@ -9,9 +9,25 @@ class DB {
         $this->check_database();
     }
 
-    public static function get_album($ident) {
+    public static function get_album($album_ident) {
         new DB();
-        return Lazer::table('albums')->where('ident', '=', $ident)->find()->asArray()[0];
+        $result = Lazer::table('albums')->where('ident', '=', $album_ident)
+                                        ->find()
+                                        ->asArray();
+        if ($result && $result[0]) {
+            return $result[0];
+        }
+    }
+
+    public static function get_album_user($album_ident, $user_key) {
+        new DB();
+        $result = Lazer::table('users')->where('album_ident', '=', $album_ident)
+                                        ->andWhere('key', '=', $user_key)
+                                        ->find()
+                                        ->asArray();
+        if ($result && $result[0]) {
+            return $result[0];
+        }
     }
 
     protected function check_database() {
@@ -19,6 +35,12 @@ class DB {
             \Lazer\Classes\Helpers\Validate::table('albums')->exists();
         } catch(\Lazer\Classes\LazerException $e){
             $this->create_table_albums();
+        }
+
+        try{
+            \Lazer\Classes\Helpers\Validate::table('users')->exists();
+        } catch(\Lazer\Classes\LazerException $e){
+            $this->create_table_users();
         }
     }
 
@@ -28,6 +50,14 @@ class DB {
             'ident'         => 'string',
             'description'   => 'string',
             'soundcloud_url'=> 'string'
+        ));
+    }
+
+    protected function create_table_users() {
+        Lazer::create('users', array(
+            'album_ident'   => 'string',
+            'email'         => 'string',
+            'key'           => 'string'
         ));
     }
 }
