@@ -30,6 +30,16 @@ class DB {
         }
     }
 
+    public static function get_album_users($album_ident) {
+        new DB();
+        $result = Lazer::table('users')->where('album_ident', '=', $album_ident)
+                                        ->findAll()
+                                        ->asArray();
+        if ($result && $result[0]) {
+            return $result;
+        }
+    }
+
     protected function check_database() {
         try{
             \Lazer\Classes\Helpers\Validate::table('albums')->exists();

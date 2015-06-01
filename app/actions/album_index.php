@@ -9,14 +9,14 @@ class AlbumIndexAction extends Action {
 		$user = DB::get_album_user($this->params['album'], $this->params['user']);
 		if (count($user) <= 0) { $this->renderJSONError('user "' . $this->params['user'] . '" has no access to album "' . $this->params['album'] . '"', 401); return; }
 
+		$album_users = DB::get_album_users($this->params['album']);
+		$album_user_emails = array_map(function($u) { return $u['email']; }, $album_users);
+
 		$data = array(
 			'name'			=> $album['name'],
 			'soundloud_url'	=> $album['soundcloud_url'],
 			'download_url'	=> '/download/dummy.zip',
-			'users'			=> array(
-				'user1@foo.bar',
-				'seconduser@lorem.ipsum'
-			),
+			'users'			=> $album_user_emails,
 			'images'		=> array(
 				array(
 					'url'		=> 'image1.jpg',
