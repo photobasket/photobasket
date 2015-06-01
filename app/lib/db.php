@@ -40,6 +40,16 @@ class DB {
         }
     }
 
+    public static function get_album_images($album_ident) {
+        new DB();
+        $result = Lazer::table('images')->where('album_ident', '=', $album_ident)
+                                        ->findAll()
+                                        ->asArray();
+        if ($result && $result[0]) {
+            return $result;
+        }
+    }
+
     protected function check_database() {
         try{
             \Lazer\Classes\Helpers\Validate::table('albums')->exists();
@@ -51,6 +61,12 @@ class DB {
             \Lazer\Classes\Helpers\Validate::table('users')->exists();
         } catch(\Lazer\Classes\LazerException $e){
             $this->create_table_users();
+        }
+
+        try{
+            \Lazer\Classes\Helpers\Validate::table('images')->exists();
+        } catch(\Lazer\Classes\LazerException $e){
+            $this->create_table_images();
         }
     }
 
@@ -68,6 +84,15 @@ class DB {
             'album_ident'   => 'string',
             'email'         => 'string',
             'key'           => 'string'
+        ));
+    }
+
+    protected function create_table_images() {
+        Lazer::create('images', array(
+            'album_ident'   => 'string',
+            'user_key'      => 'string',
+            'path'          => 'string',
+            'size'          => 'string'
         ));
     }
 }

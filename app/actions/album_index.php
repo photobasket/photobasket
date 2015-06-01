@@ -12,33 +12,32 @@ class AlbumIndexAction extends Action {
 		$album_users = DB::get_album_users($this->params['album']);
 		$album_user_emails = array_map(function($u) { return $u['email']; }, $album_users);
 
+		$album_images = $this->get_album_images($this->params['album']);
+
 		$data = array(
 			'name'			=> $album['name'],
 			'soundloud_url'	=> $album['soundcloud_url'],
 			'download_url'	=> '/download/dummy.zip',
 			'users'			=> $album_user_emails,
-			'images'		=> array(
-				array(
-					'url'		=> 'image1.jpg',
-					'thumb320'	=> 'image1.320.jpg',
-					'size'		=> '800x600',
-					'uploader'	=> 'uploader@example.com'
-				),
-				array(
-					'url'		=> 'image2.jpg',
-					'thumb320'	=> 'image2.320.jpg',
-					'size'		=> '800x600',
-					'uploader'	=> 'uploader@example.com'
-				),
-				array(
-					'url'		=> 'image3.jpg',
-					'thumb320'	=> 'image3.320.jpg',
-					'size'		=> '800x600',
-					'uploader'	=> 'uploader@example.com'
-				)
-			)
+			'images'		=> $album_images
 		);
 
 		$this->renderJSON($data);
+	}
+
+	private function get_album_images($album) {
+		$db_images = DB::get_album_images($this->params['album']);
+		$album_images = array();
+
+		foreach ($db_images as $db_image) {
+			array_push($album_images, array(
+				'url'		=> $db_image['path'],
+				'thumb320'	=> $db_image['path'],
+				'size'		=> $db_image['size'],
+				'uploader'	=> $db_image['user_key']
+			));
+		}
+
+		return $album_images;
 	}
 }
