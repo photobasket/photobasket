@@ -50,6 +50,26 @@ class DB {
         }
     }
 
+    public static function create_album_user($album_ident, $user_email) {
+        new DB();
+
+        if (count(DB::get_album_user($album_ident, $user_email)) >= 1) {
+            throw new Exception('Division durch Null.');
+        }
+
+        $uniqid = uniqid('', true);
+        $uniqid = str_replace('.', '', $uniqid);
+        $uniqid = substr($uniqid, 0, 15);
+
+        $row = Lazer::table('users');
+        $row->album_ident = $album_ident;
+        $row->email = $user_email;
+        $row->key = $uniqid;
+        $row->save();
+
+        return $uniqid;
+    }
+
     protected function check_database() {
         try{
             \Lazer\Classes\Helpers\Validate::table('albums')->exists();

@@ -3,11 +3,14 @@ namespace PhotoBasket;
 
 class AlbumIndexAction extends Action {
 	function main() {
+		if(!$this->check_existence_of_album($this->params['album'])) {
+			return;
+		}
 		$album = DB::get_album($this->params['album']);
-		if (count($album) <= 0) { $this->renderJSONError('album "' . $this->params['album'] . '" missing', 404); return; }
 
-		$user = DB::get_album_user($this->params['album'], $this->params['user']);
-		if (count($user) <= 0) { $this->renderJSONError('user "' . $this->params['user'] . '" has no access to album "' . $this->params['album'] . '"', 401); return; }
+		if (!$this->check_existence_of_album_user($this->params['album'], $this->params['user'])) {
+			return;
+		}
 
 		$album_users = DB::get_album_users($this->params['album']);
 		$album_user_emails = array_map(function($u) { return $u['email']; }, $album_users);
@@ -22,7 +25,7 @@ class AlbumIndexAction extends Action {
 			'images'		=> $album_images
 		);
 
-		$this->renderJSON($data);
+		$this->render_json($data);
 	}
 
 	private function get_album_images($album) {
