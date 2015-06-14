@@ -43,15 +43,15 @@
 }
 
 .icn-download {
-  background: url(/img/download.svg) no-repeat;
+  background: url(../img/download.svg) no-repeat;
 }
 
 .icn-add-friends {
-  background: url(/img/add_friends.svg) no-repeat;
+  background: url(../img/add_friends.svg) no-repeat;
 }
 
 .icn-soundcloud {
-  background: url(/img/soundcloud.png) no-repeat;
+  background: url(../img/soundcloud.png) no-repeat;
 }
 
 
@@ -75,7 +75,7 @@
 }
 
 .dz-message {
-  background: url(/img/upload.svg) center no-repeat;
+  background: url(../img/upload.svg) center no-repeat;
   height: 100px;
   color: #3BCDAC;
 }

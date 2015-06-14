@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__ . '/get_album.php';
 require __DIR__ . '/get_rest_album.php';
 require __DIR__ . '/get_rest_album_download.php';
 require __DIR__ . '/get_images.php';
