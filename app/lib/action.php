@@ -4,8 +4,11 @@ namespace PhotoBasket;
 class Action {
 	private $response;
 	private $request;
+	private $twig;
 
 	public function __construct($app, $parameters) {
+		$this->init_templating();
+
 		$this->request	= $app->request;
 		$this->response	= $app->response;
 		$this->params	= $parameters;
@@ -15,6 +18,14 @@ class Action {
 
 	public function main() {
 		// DO NOTHING
+	}
+
+	public function render($template_name, $template_params = array(), $status_code = 200) {
+		$template = $this->twig->loadTemplate($template_name);
+		$rendered = $template->render($template_params);
+
+		$this->response->setStatus($status_code);
+		$this->response->write($rendered);
 	}
 
 	protected function set_json_header() {
@@ -43,5 +54,18 @@ class Action {
 		$user = DB::get_album_user($album_ident, $user_key);
 		if (count($user) <= 0) { $this->render_json_error('user "' . $user_key . '" has no access to album "' . $album_ident . '"', 401); return; }
 		return true;
+	}
+
+	private function init_templating() {
+		$loader = new \Twig_Loader_Filesystem(__DIR__ . '/../views/');
+		$this->twig = new \Twig_Environment($loader, array(
+			'cache'	=> false,	// has to be changed
+		));
+
+		$this->twig->addGlobal('base_url', $this->base_url());
+	}
+
+	private function base_url() {
+		return preg_replace('/\/[^\/]+$/', '', $_SERVER["SCRIPT_NAME"]);
 	}
 }

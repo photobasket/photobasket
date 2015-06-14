@@ -60,3 +60,6 @@ images/
 
 # db data
 db/data/
+
+# temp stuff
+tmp/
