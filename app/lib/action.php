@@ -32,10 +32,14 @@ class Action {
 		$this->response->headers->set('Content-Type', 'application/json');
 	}
 
-	protected function set_file_header($content_type = 'application/octet-stream') {
+	protected function deliver_file($file_path, $content_type = 'application/octet-stream') {
 		$this->response->setStatus(200);
 		$this->response->headers->set('Content-Type', $content_type);
 		$this->response->headers->set('Content-Transfer-Encoding', 'binary');
+		$this->response->headers->set('Content-Length', filesize($file_path));
+		$this->response->finalize();
+
+		readfile($file_path);
 	}
 
 	protected function render_json($array) {
@@ -46,6 +50,11 @@ class Action {
 
 	protected function render_not_found($message = '404 - not found') {
 		$this->response->setStatus(404);
+		$this->response->write($message);
+	}
+
+	protected function render_error($message = '400 - error', $code = 400) {
+		$this->response->setStatus($code);
 		$this->response->write($message);
 	}
 

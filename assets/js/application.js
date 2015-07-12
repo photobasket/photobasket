@@ -260,7 +260,7 @@ $(function () {
 
   initPhotoSwipeFromDOM('.album');
 
-  $('form#my-awesome-dropzone').prop('action', '/rest' + path + '/upload')
+  $('form#my-awesome-dropzone').prop('action', path + '/upload')
   $('.js-invite').click(invite);
 
   Dropzone.options.myAwesomeDropzone = {

@@ -10,11 +10,14 @@ class AlbumImageAction extends Action {
 
 		$image = DB::get_album_image($this->params['album'], $this->params['filename']);
 		if (!$image) {
+			$image = DB::get_album_image_from_thumbnail($this->params['album'], $this->params['filename']);
+		}
+		if (!$image) {
 			$this->render_not_found();
 			return;
 		}
 
-		$image_path = $this->base_path() . '/images/' . $album['ident'] . '/' . $image['path'];
+		$image_path = $this->base_path() . '/images/' . $album['ident'] . '/' . $this->params['filename'];
 
 		if(!file_exists($image_path)) {
 			$this->render_not_found();
@@ -30,10 +33,12 @@ class AlbumImageAction extends Action {
 			case 'png': $image_content_type = 'image/png'; break;
 		}
 
-		$this->set_file_header($image_content_type);
-		ob_clean();
-		flush();
+		$this->deliver_file($image_path, $image_content_type);
 
-		readfile($image_path);
+		// $this->set_file_header(200, $image_content_type, filesize($image_path));
+		// ob_clean();
+		// flush();
+
+		// readfile($image_path);
 	}
 }

@@ -15,7 +15,7 @@ class AlbumInfoAction extends Action {
 		$album_users = DB::get_album_users($this->params['album']);
 		$album_user_emails = array_map(function($u) { return $u['email']; }, $album_users);
 
-		$album_images = $this->get_album_images($this->params['album']);
+		$album_images = $this->get_album_images($album);
 
 		$data = array(
 			'name'			=> $album['name'],
@@ -29,16 +29,27 @@ class AlbumInfoAction extends Action {
 	}
 
 	private function get_album_images($album) {
-		$db_images = DB::get_album_images($this->params['album']);
+		$db_images = DB::get_album_images($album['ident']);
 		$album_images = array();
 
 		foreach ($db_images as $db_image) {
-			array_push($album_images, array(
-				'url'		=> 'image/' . $db_image['path'],
-				'thumb320'	=> 'image/' . $db_image['path'],
-				'size'		=> $db_image['size'],
-				'uploader'	=> $db_image['user_key']
-			));
+			$album_basedir = realpath(__DIR__ . '/../../images/' . $album['ident']);
+			$image_file =  $album_basedir . '/' . $db_image['path'];
+
+			if(is_file($image_file)) {
+				$thumbnail = $db_image['path'];
+				$thumbnail_check_file = preg_replace('/\.([a-z]{3,4})$/', '_320.jpg', $image_file);
+				if(is_file($thumbnail_check_file)) {
+					$thumbnail = preg_replace('/\.([a-z]{3,4})$/', '_320.jpg', $db_image['path']);
+				}
+
+				array_push($album_images, array(
+					'url'		=> 'image/' . $db_image['path'],
+					'thumb320'	=> 'image/' . $thumbnail,
+					'size'		=> $db_image['size'],
+					'uploader'	=> $db_image['user_key']
+				));
+			}
 		}
 
 		return $album_images;

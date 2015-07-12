@@ -61,11 +61,25 @@ class DB {
         }
     }
 
+    public static function get_album_image_from_thumbnail($album_ident, $thumbnail_filename) {
+        new DB();
+
+        $clean_thumbnail_filename = preg_replace('/_320\.jpg$/', '%', $thumbnail_filename);
+
+        $result = Lazer::table('images')->where('album_ident', '=', $album_ident)
+                                        ->andWhere('path', 'LIKE', $clean_thumbnail_filename)
+                                        ->find()
+                                        ->asArray();
+        if ($result && $result[0]) {
+            return $result[0];
+        }
+    }
+
     public static function create_album_user($album_ident, $user_email) {
         new DB();
 
         if (count(DB::get_album_user($album_ident, $user_email)) >= 1) {
-            throw new Exception('Division durch Null.');
+            throw new Exception('Album user not found');
         }
 
         $uniqid = uniqid('', true);
@@ -79,6 +93,23 @@ class DB {
         $row->save();
 
         return $uniqid;
+    }
+
+    public static function create_album_image($album_ident, $user_email, $image_filename, $image_size) {
+        new DB();
+
+        if (count(DB::get_album_user($album_ident, $user_email)) >= 1) {
+            throw new Exception('Album user not found');
+        }
+
+        $row = Lazer::table('images');
+        $row->album_ident = $album_ident;
+        $row->user_key = $user_email;
+        $row->path = $image_filename;
+        $row->size = $image_size;
+        $row->save();
+
+        return $row;
     }
 
     protected function check_database() {
