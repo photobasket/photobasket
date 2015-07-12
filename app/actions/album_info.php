@@ -34,8 +34,8 @@ class AlbumInfoAction extends Action {
 
 		foreach ($db_images as $db_image) {
 			array_push($album_images, array(
-				'url'		=> $db_image['path'],
-				'thumb320'	=> $db_image['path'],
+				'url'		=> 'image/' . $db_image['path'],
+				'thumb320'	=> 'image/' . $db_image['path'],
 				'size'		=> $db_image['size'],
 				'uploader'	=> $db_image['user_key']
 			));

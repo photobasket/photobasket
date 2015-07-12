@@ -32,10 +32,21 @@ class Action {
 		$this->response->headers->set('Content-Type', 'application/json');
 	}
 
+	protected function set_file_header($content_type = 'application/octet-stream') {
+		$this->response->setStatus(200);
+		$this->response->headers->set('Content-Type', $content_type);
+		$this->response->headers->set('Content-Transfer-Encoding', 'binary');
+	}
+
 	protected function render_json($array) {
 		$this->set_json_header();
 		$this->response->setStatus(200);
 		$this->response->write(json_encode($array, JSON_PRETTY_PRINT));
+	}
+
+	protected function render_not_found($message = '404 - not found') {
+		$this->response->setStatus(404);
+		$this->response->write($message);
 	}
 
 	protected function render_json_error($message, $status_code = 400) {
@@ -67,5 +78,9 @@ class Action {
 
 	private function base_url() {
 		return preg_replace('/\/[^\/]+$/', '', $_SERVER["SCRIPT_NAME"]);
+	}
+
+	protected function base_path() {
+		return realpath( __DIR__ . '/../../');
 	}
 }

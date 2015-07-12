@@ -50,6 +50,17 @@ class DB {
         }
     }
 
+    public static function get_album_image($album_ident, $filename) {
+        new DB();
+        $result = Lazer::table('images')->where('album_ident', '=', $album_ident)
+                                        ->andWhere('path', '=', $filename)
+                                        ->find()
+                                        ->asArray();
+        if ($result && $result[0]) {
+            return $result[0];
+        }
+    }
+
     public static function create_album_user($album_ident, $user_email) {
         new DB();
 
