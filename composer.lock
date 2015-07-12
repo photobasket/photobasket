@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "47e1f2b90e37eb3e81c6cfa5b0c49297",
+    "hash": "6d18457c82f802189efe3e404ea4dd00",
     "packages": [
         {
             "name": "greg0/lazer-database",
-            "version": "1.0.13",
+            "version": "1.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Greg0/Lazer-Database.git",
-                "reference": "1f93b0f1c7c6af72b12491122661c3b636bb0f0c"
+                "reference": "735f0e7adceceef269dec4cb7351c3397d557e9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Greg0/Lazer-Database/zipball/1f93b0f1c7c6af72b12491122661c3b636bb0f0c",
-                "reference": "1f93b0f1c7c6af72b12491122661c3b636bb0f0c",
+                "url": "https://api.github.com/repos/Greg0/Lazer-Database/zipball/735f0e7adceceef269dec4cb7351c3397d557e9c",
+                "reference": "735f0e7adceceef269dec4cb7351c3397d557e9c",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,98 @@
                 "json",
                 "lazer"
             ],
-            "time": "2015-04-20 14:22:10"
+            "time": "2015-06-16 19:33:54"
+        },
+        {
+            "name": "gregwar/cache",
+            "version": "v1.0.10",
+            "target-dir": "Gregwar/Cache",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gregwar/Cache.git",
+                "reference": "0a1a02e4943e95f491b3d2395609247385975622"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Gregwar/Cache/zipball/0a1a02e4943e95f491b3d2395609247385975622",
+                "reference": "0a1a02e4943e95f491b3d2395609247385975622",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gregwar\\Cache": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gregwar",
+                    "email": "g.passault@gmail.com"
+                }
+            ],
+            "description": "A lightweight file-system cache system",
+            "keywords": [
+                "cache",
+                "caching",
+                "file-system",
+                "system"
+            ],
+            "time": "2014-09-24 11:23:30"
+        },
+        {
+            "name": "gregwar/image",
+            "version": "v2.0.20",
+            "target-dir": "Gregwar/Image",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gregwar/Image.git",
+                "reference": "2c6bf2fb3b0eb844f0568d6ee55eeb86fc799414"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Gregwar/Image/zipball/2c6bf2fb3b0eb844f0568d6ee55eeb86fc799414",
+                "reference": "2c6bf2fb3b0eb844f0568d6ee55eeb86fc799414",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "gregwar/cache": "1.*",
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "behat/transliterator": "Transliterator provides ability to set non-latin1 pretty names"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gregwar\\Image": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Passault",
+                    "email": "g.passault@gmail.com",
+                    "homepage": "http://www.gregwar.com/"
+                }
+            ],
+            "description": "Image handling",
+            "homepage": "https://github.com/Gregwar/Image",
+            "keywords": [
+                "gd",
+                "image"
+            ],
+            "time": "2015-05-30 19:24:37"
         },
         {
             "name": "slim/slim",

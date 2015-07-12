@@ -48,54 +48,6 @@
         ]
     },
     {
-        "name": "greg0/lazer-database",
-        "version": "1.0.13",
-        "version_normalized": "1.0.13.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Greg0/Lazer-Database.git",
-            "reference": "1f93b0f1c7c6af72b12491122661c3b636bb0f0c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Greg0/Lazer-Database/zipball/1f93b0f1c7c6af72b12491122661c3b636bb0f0c",
-            "reference": "1f93b0f1c7c6af72b12491122661c3b636bb0f0c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4"
-        },
-        "time": "2015-04-20 14:22:10",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Lazer\\Classes\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Grzegorz Kuźnik",
-                "email": "gerg0sz92@gmail.com"
-            }
-        ],
-        "description": "PHP library to use JSON files like flat-file database",
-        "homepage": "http://github.com/Greg0/Lazer-Database",
-        "keywords": [
-            "Simple",
-            "database",
-            "db",
-            "file",
-            "flat",
-            "json",
-            "lazer"
-        ]
-    },
-    {
         "name": "twig/twig",
         "version": "v1.18.2",
         "version_normalized": "1.18.2.0",
@@ -152,6 +104,149 @@
         "homepage": "http://twig.sensiolabs.org",
         "keywords": [
             "templating"
+        ]
+    },
+    {
+        "name": "greg0/lazer-database",
+        "version": "1.0.14",
+        "version_normalized": "1.0.14.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Greg0/Lazer-Database.git",
+            "reference": "735f0e7adceceef269dec4cb7351c3397d557e9c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Greg0/Lazer-Database/zipball/735f0e7adceceef269dec4cb7351c3397d557e9c",
+            "reference": "735f0e7adceceef269dec4cb7351c3397d557e9c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "time": "2015-06-16 19:33:54",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Lazer\\Classes\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Grzegorz Kuźnik",
+                "email": "gerg0sz92@gmail.com"
+            }
+        ],
+        "description": "PHP library to use JSON files like flat-file database",
+        "homepage": "http://github.com/Greg0/Lazer-Database",
+        "keywords": [
+            "Simple",
+            "database",
+            "db",
+            "file",
+            "flat",
+            "json",
+            "lazer"
+        ]
+    },
+    {
+        "name": "gregwar/cache",
+        "version": "v1.0.10",
+        "version_normalized": "1.0.10.0",
+        "target-dir": "Gregwar/Cache",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Gregwar/Cache.git",
+            "reference": "0a1a02e4943e95f491b3d2395609247385975622"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Gregwar/Cache/zipball/0a1a02e4943e95f491b3d2395609247385975622",
+            "reference": "0a1a02e4943e95f491b3d2395609247385975622",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "time": "2014-09-24 11:23:30",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Gregwar\\Cache": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Gregwar",
+                "email": "g.passault@gmail.com"
+            }
+        ],
+        "description": "A lightweight file-system cache system",
+        "keywords": [
+            "cache",
+            "caching",
+            "file-system",
+            "system"
+        ]
+    },
+    {
+        "name": "gregwar/image",
+        "version": "v2.0.20",
+        "version_normalized": "2.0.20.0",
+        "target-dir": "Gregwar/Image",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Gregwar/Image.git",
+            "reference": "2c6bf2fb3b0eb844f0568d6ee55eeb86fc799414"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Gregwar/Image/zipball/2c6bf2fb3b0eb844f0568d6ee55eeb86fc799414",
+            "reference": "2c6bf2fb3b0eb844f0568d6ee55eeb86fc799414",
+            "shasum": ""
+        },
+        "require": {
+            "ext-gd": "*",
+            "gregwar/cache": "1.*",
+            "php": ">=5.3.0"
+        },
+        "suggest": {
+            "behat/transliterator": "Transliterator provides ability to set non-latin1 pretty names"
+        },
+        "time": "2015-05-30 19:24:37",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Gregwar\\Image": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Grégoire Passault",
+                "email": "g.passault@gmail.com",
+                "homepage": "http://www.gregwar.com/"
+            }
+        ],
+        "description": "Image handling",
+        "homepage": "https://github.com/Gregwar/Image",
+        "keywords": [
+            "gd",
+            "image"
         ]
     }
 ]

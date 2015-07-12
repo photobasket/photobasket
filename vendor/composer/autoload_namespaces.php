@@ -9,4 +9,6 @@ return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Slim' => array($vendorDir . '/slim/slim'),
     'Lazer\\Classes\\' => array($vendorDir . '/greg0/lazer-database/src'),
+    'Gregwar\\Image' => array($vendorDir . '/gregwar/image'),
+    'Gregwar\\Cache' => array($vendorDir . '/gregwar/cache'),
 );
