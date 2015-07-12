@@ -1,7 +1,7 @@
 <?php
 namespace PhotoBasket;
 
-class AlbumRestIndexAction extends Action {
+class AlbumInfoAction extends Action {
 	function main() {
 		if(!$this->check_existence_of_album($this->params['album'])) {
 			return;
