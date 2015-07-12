@@ -18,7 +18,7 @@ class UserCreateAction extends Action {
 		$album_users = DB::get_album_users($album);
 		$album_user_emails = array_map(function($u) { return strtolower($u['email']); }, $album_users);
 		if(in_array($create_user_email, $album_user_emails)) {
-			$this->render_json_error('user with email "' . $create_user_email . '" already existing in album "' . $album_ident . '"', 406);
+			$this->render_json_error('user with email "' . $create_user_email . '" already existing in album "' . $album . '"', 406);
 			return;
 		}
 
