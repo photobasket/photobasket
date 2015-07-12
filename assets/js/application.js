@@ -254,7 +254,7 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 $(function () {
   var path = document.location.pathname;
-  $.ajax({url: "/rest" + path})
+  $.ajax({url: path + '/images'})
     .done(showAlbum)
     .error(function (e) { console.log("Failed to load the album: ", e.status, e.statusText); });
 
